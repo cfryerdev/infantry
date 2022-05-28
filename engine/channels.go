@@ -1,9 +1,14 @@
 package engine
 
 import (
+	"github.com/gookit/event"
 	"infantry/bindings"
 )
 
-type DataChannel chan bindings.DataEvent
+func startEvent() {
+	event.MustFire(bindings.StartedEvent, event.M{})
+}
 
-type DataChannelSlice []DataChannel
+func completeEvent() {
+	event.MustFire(bindings.CompletedEvent, event.M{})
+}
