@@ -1,0 +1,11 @@
+config:
+  host: "https://run.mocky.io"
+  stages:
+    - seconds: 30
+      addUsersPerSecond: 3
+      maxUsersAtOnce: 10
+  protocol:
+    type: http
+plan:
+    - get:
+        url: "/v3/0eff1291-866e-4afd-a462-e3711607caa4"
