@@ -1,4 +1,4 @@
-package cmd
+package console
 
 import (
 	"github.com/urfave/cli/v2"
@@ -8,19 +8,19 @@ import (
 func SetupArgs(plan string, output string) *cli.App {
 
 	args := cli.NewApp()
-	args.Name = "infantry"
+	args.Name = "Infantry"
 	args.Usage = "Performance and Load testing."
 	args.Flags = []cli.Flag{
 		&cli.StringFlag{
 			Name:        "plan",
 			Aliases:     []string{"p"},
-			Usage:       "The yaml/json file used to load test.",
+			Usage:       "The yaml file (plan) used to orchestrate the load testing.",
 			Destination: &plan,
 		},
 		&cli.StringFlag{
 			Name:        "output",
 			Aliases:     []string{"o"},
-			Usage:       "The output file used for reporting.",
+			Usage:       "The output file used for reporting. Use {date} for timestamp in filename.",
 			Destination: &output,
 		},
 	}

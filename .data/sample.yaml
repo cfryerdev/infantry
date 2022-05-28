@@ -1,14 +1,21 @@
-config:
+setup:
   host: "https://run.mocky.io"
   stages:
-    - seconds: 30
-      addUsersPerSecond: 3
+    - seconds: 10
+      addUsersPerSecond: 1
       maxUsersAtOnce: 10
-  protocol:
-    http:
-        ssl: false
-        headers:
-          - x-api-key: "{{environment}}.CUSTOM_KEY_HERE"
-plan:
-    - get:
+    - seconds: 600
+      addUsersPerSecond: 10
+      maxUsersAtOnce: 300
+    - seconds: 10
+      addUsersPerSecond: 1
+      maxUsersAtOnce: 10
+protocol:
+  http:
+      ssl: false
+      headers:
+        - x-api-key: "{{environment}}.CUSTOM_KEY_HERE"
+proposal:
+    - name: "Get a sample payload"
+        method: "get"
         url: "/v3/0eff1291-866e-4afd-a462-e3711607caa4"

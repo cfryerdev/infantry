@@ -2,7 +2,7 @@ package infantry
 
 import (
 	"fmt"
-	"infantry/cli/cmd"
+	"infantry/cmd/console"
 	"log"
 	"os"
 )
@@ -13,7 +13,7 @@ func main() {
 	var plan string
 	var output string
 
-	err := cmd.SetupArgs(plan, output).Run(os.Args)
+	err := console.SetupArgs(plan, output).Run(os.Args)
 	if err != nil {
 		log.Fatal(err)
 	}

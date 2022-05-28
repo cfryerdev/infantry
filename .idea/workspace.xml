@@ -5,17 +5,45 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="64a94e3d-246d-4b74-aa52-f5b45129a8dc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/infantry.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bindings/events.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bindings/plan.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bindings/report.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmd/console/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmd/desktop/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/engine/channels.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/engine/io.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/engine/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/engine/parallels.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/engine/schema.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.data/sample.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/.data/sample.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/infantry-poc.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/args.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/console/args.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/console.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/io.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/bindings/json.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/bindings/yaml.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/engine/exec.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/engine/flags.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/engine/main.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/engine/parallels.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/engine/schema.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/protocols/http/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/protocols/http/http.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/protocols/socket/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/protocols/socket/socket.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+      </list>
+    </option>
   </component>
   <component name="GOROOT" url="file://$USER_HOME$/sdk/go1.18" />
   <component name="Git.Settings">
@@ -31,6 +59,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "DefaultGoTemplateProperty": "Go File",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.go.formatter.settings.were.checked": "true",
@@ -43,9 +72,29 @@
     "last_opened_file_path": "/home/cfryerdev"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib" />
+      <recent name="$PROJECT_DIR$/cmd" />
+      <recent name="$PROJECT_DIR$/console" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/pkg" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
