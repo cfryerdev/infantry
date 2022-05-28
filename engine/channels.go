@@ -5,6 +5,8 @@ import (
 	"infantry/bindings"
 )
 
+// https://github.com/gookit/event
+
 func startEvent(message bindings.DataEvent) {
 	event.MustFire(bindings.StartedEvent, event.M{"argo0": message})
 }
