@@ -5,32 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="64a94e3d-246d-4b74-aa52-f5b45129a8dc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/bindings/events.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bindings/plan.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bindings/report.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmd/console/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmd/desktop/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/channels.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/io.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/parallels.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/schema.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.data/sample.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/.data/sample.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/args.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/console/args.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/console.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/io.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bindings/events.go" beforeDir="false" afterPath="$PROJECT_DIR$/bindings/events.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/console/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/console/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/io.go" beforeDir="false" afterPath="$PROJECT_DIR$/engine/io.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/engine/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/schema.go" beforeDir="false" afterPath="$PROJECT_DIR$/engine/schema.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/bindings/json.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/bindings/yaml.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/engine/exec.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/engine/flags.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/engine/main.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/engine/parallels.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/engine/schema.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/protocols/http/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/protocols/http/http.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/protocols/socket/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/protocols/socket/socket.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -57,21 +39,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultGoTemplateProperty": "Go File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
-    "RunOnceActivity.go.watchers.conflict.with.on.save.actions.check.performed": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "go.import.settings.migrated": "true",
-    "go.sdk.automatically.set": "true",
-    "last_opened_file_path": "/home/cfryerdev"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultGoTemplateProperty&quot;: &quot;Go File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.watchers.conflict.with.on.save.actions.check.performed&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/cfryerdev&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;terminal&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/lib" />

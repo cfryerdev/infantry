@@ -6,9 +6,10 @@ type DataEvent struct {
 }
 
 const (
-	StartedEvent = iota
-	CompletedEvent
-	IterationEvent
-	SuccessEvent
-	FailureEvent
+	StartedEvent           = "started_event"
+	CompletedEvent         = "completed_event"
+	IterationStartEvent    = "iteration_start_event"
+	IterationCompleteEvent = "iteration_completed_event"
+	SuccessEvent           = "success_event"
+	FailureEvent           = "failure_event"
 )
