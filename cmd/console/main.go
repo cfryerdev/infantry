@@ -8,7 +8,6 @@ import (
 	"os"
 )
 
-// pushUpdate Pushes updates to the console based on the event type enum value
 func main() {
 	fmt.Printf("Loading plan...")
 	var planFile string
