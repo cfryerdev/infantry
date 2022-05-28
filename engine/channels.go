@@ -5,10 +5,10 @@ import (
 	"infantry/bindings"
 )
 
-func startEvent() {
-	event.MustFire(bindings.StartedEvent, event.M{})
+func startEvent(message bindings.DataEvent) {
+	event.MustFire(bindings.StartedEvent, event.M{"argo0": message})
 }
 
-func completeEvent() {
-	event.MustFire(bindings.CompletedEvent, event.M{})
+func completeEvent(message bindings.DataEvent) {
+	event.MustFire(bindings.CompletedEvent, event.M{"argo0": message})
 }

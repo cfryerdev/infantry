@@ -6,7 +6,8 @@ type Report struct {
 }
 
 type Summary struct {
-	Timestamp string
+	StartTimestamp string
+	EndTimestamp   string
 }
 
 type Iteration struct {
