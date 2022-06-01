@@ -30,6 +30,5 @@ func Execute() {
 	SetupEventListeners()
 
 	var plan = engine.LoadPlanSchemaFromPath(planFile)
-	fmt.Printf("%+v\n", plan)
 	engine.Run(plan, outputFile)
 }
