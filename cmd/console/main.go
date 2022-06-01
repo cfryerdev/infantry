@@ -18,6 +18,9 @@ func main() {
 	}
 
 	fmt.Println("Thank you for using Infantry!")
+	fmt.Println("    .--._____,")
+	fmt.Println(" .-='=='==-,  ")
+	fmt.Println("(O_o_o_o_o_O) ")
 	fmt.Println("====================================")
 	fmt.Printf("Starting plan...")
 

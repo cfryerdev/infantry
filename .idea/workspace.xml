@@ -5,15 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="64a94e3d-246d-4b74-aa52-f5b45129a8dc" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.data/sample.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/.data/sample.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bindings/report.go" beforeDir="false" afterPath="$PROJECT_DIR$/bindings/report.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/console/args.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/console/args.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmd/console/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/console/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/schema.go" beforeDir="false" afterPath="$PROJECT_DIR$/engine/schema.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
