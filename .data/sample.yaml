@@ -17,5 +17,5 @@ protocol:
         - x-api-key: "{{environment.CUSTOM_KEY_HERE}}"
 proposal:
     - name: "Get a sample payload"
-        method: "get"
-        url: "/v3/0eff1291-866e-4afd-a462-e3711607caa4"
+      method: "get"
+      url: "/v3/0eff1291-866e-4afd-a462-e3711607caa4"

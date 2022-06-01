@@ -1,9 +1,9 @@
 package bindings
 
 type Plan struct {
-	Setup    *Setup    `yaml:"config,omitempty"`
-	Protocol *Protocol `yaml:"protocol,omitempty"`
-	Proposal *Proposal `yaml:"proposal,omitempty"`
+	Setup    Setup      `yaml:"setup,omitempty"`
+	Protocol Protocol   `yaml:"protocol,omitempty"`
+	Proposal []Proposal `yaml:"proposal,omitempty"`
 }
 
 type Setup struct {
@@ -18,13 +18,13 @@ type Stage struct {
 }
 
 type Protocol struct {
-	Http   *ProtocolHttp   `yaml:"http,omitempty"`
-	Socket *ProtocolSocket `yaml:"socket,omitempty"`
+	Http   ProtocolHttp   `yaml:"http,omitempty"`
+	Socket ProtocolSocket `yaml:"socket,omitempty"`
 }
 
 type ProtocolHttp struct {
-	Ssl     bool              `yaml:"ssl,omitempty"`
-	Headers map[string]string `yaml:"headers,omitempty"`
+	Ssl bool `yaml:"ssl,omitempty"`
+	//Headers map[string]string `yaml:"headers,omitempty"`
 }
 
 type ProtocolHttpHeaders struct {
@@ -35,9 +35,7 @@ type ProtocolSocket struct {
 }
 
 type Proposal struct {
-}
-
-type Exec struct {
 	Name   string `yaml:"name,omitempty"`
 	Method string `yaml:"method,omitempty"`
+	Url    string `yaml:"url,omitempty"`
 }

@@ -2,17 +2,19 @@ package console
 
 import (
 	"fmt"
-	"github.com/gookit/event"
-	"infantry/bindings"
+	"infantry/engine"
 	"log"
 	"os"
 )
 
 func main() {
+	Execute()
+}
+
+func Execute() {
 	var planFile string
 	var outputFile string
-
-	err := SetupArgs(outputFile, planFile).Run(os.Args)
+	err := SetupArgs(&planFile, &outputFile).Run(os.Args)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -22,16 +24,12 @@ func main() {
 	fmt.Println(" .-='=='==-,  ")
 	fmt.Println("(O_o_o_o_o_O) ")
 	fmt.Println("====================================")
-	fmt.Printf("Starting plan...")
+	fmt.Println(fmt.Sprintf("Plan: %s", planFile))
+	fmt.Println(fmt.Sprintf("Output: %s", outputFile))
 
-	event.On(bindings.StartedEvent, event.ListenerFunc(func(e event.Event) error {
-		fmt.Printf("Started Plan...")
-		return nil
-	}), event.High)
+	SetupEventListeners()
 
-	event.On(bindings.CompletedEvent, event.ListenerFunc(func(e event.Event) error {
-		fmt.Printf("Complete!")
-		os.Exit(0)
-		return nil
-	}), event.High)
+	var plan = engine.LoadPlanSchemaFromPath(planFile)
+	fmt.Printf("%+v\n", plan)
+	engine.Run(plan, outputFile)
 }

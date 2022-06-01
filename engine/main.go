@@ -5,7 +5,7 @@ import (
 	"time"
 )
 
-func main(plan bindings.Plan, output string) {
+func Run(plan bindings.Plan, output string) {
 	var report bindings.Report
 	report.Summary.StartTimestamp = time.Now().UTC().String()
 }
