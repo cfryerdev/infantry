@@ -7,5 +7,5 @@ Yeah well I wanted to practice Golang, and see how small and efficient I can mak
 ## Execute?
 Just to get you started...
 ```bash
-go run main.go  -p ./data/sample.yaml -o ./data/sample.json
+go run main.go -p .data/sample.yaml -o .data/sample_report.json
 ```
