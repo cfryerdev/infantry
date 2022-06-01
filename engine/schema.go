@@ -2,7 +2,9 @@ package engine
 
 import (
 	"flag"
+	"github.com/go-playground/validator/v10"
 	"infantry/bindings"
+	"reflect"
 )
 
 // LoadPlanSchemaFromPath Reads the plan yaml file
@@ -17,7 +19,18 @@ func LoadPlanSchemaFromPath(pathToConfig string) bindings.Plan {
 }
 
 // ValidateSchema Validates the plan file to ensure it will function correctly
-func ValidateSchema() {}
+func ValidateSchema(plan bindings.Plan) {
+	var planValidator = validator.New()
+	err := planValidator.Struct(plan)
+	if err != nil {
+
+	}
+}
 
 // LoadEnvironmentOverrides Replaces any instances where env vars are used
-func LoadEnvironmentOverrides() {}
+func LoadEnvironmentOverrides(plan bindings.Plan) bindings.Plan {
+	v := reflect.ValueOf(plan)
+	// loop through each property, and find any wildcards -> {{environment.CUSTOM_KEY_HERE}}
+	// Get the env variable, then replace value and return plan
+	return plan
+}

@@ -9,7 +9,6 @@ import (
 )
 
 func main() {
-	fmt.Printf("Loading plan...")
 	var planFile string
 	var outputFile string
 
@@ -17,6 +16,10 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+
+	fmt.Println("Thank you for using Infantry!")
+	fmt.Println("====================================")
+	fmt.Printf("Starting plan...")
 
 	event.On(bindings.StartedEvent, event.ListenerFunc(func(e event.Event) error {
 		fmt.Printf("Started Plan...")
