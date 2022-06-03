@@ -14,7 +14,8 @@ protocol:
   http:
       ssl: false
       headers:
-        - x-api-key: "{{environment.CUSTOM_KEY_HERE}}"
+        - key: "x-api-key"
+          value: "{{environment}}.CUSTOM_KEY_HERE"
 proposal:
     - name: "Get a sample payload"
       method: "get"

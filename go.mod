@@ -15,6 +15,7 @@ require (
 	github.com/go-playground/validator/v10 v10.11.0 // indirect
 	github.com/google/uuid v1.3.0 // indirect
 	github.com/gookit/event v1.0.6 // indirect
+	github.com/joho/godotenv v1.4.0 // indirect
 	github.com/klauspost/compress v1.15.0 // indirect
 	github.com/leodido/go-urn v1.2.1 // indirect
 	github.com/russross/blackfriday/v2 v2.1.0 // indirect

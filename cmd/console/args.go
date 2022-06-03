@@ -2,10 +2,12 @@ package console
 
 import (
 	"github.com/urfave/cli/v2"
+	"log"
+	"os"
 )
 
 // SetupArgs Sets up the args for the cli interface
-func SetupArgs(plan *string, output *string) *cli.App {
+func SetupArgs(plan *string, output *string) {
 
 	args := cli.NewApp()
 	args.HideHelp = true
@@ -27,5 +29,8 @@ func SetupArgs(plan *string, output *string) *cli.App {
 		},
 	}
 
-	return args
+	err := args.Run(os.Args)
+	if err != nil {
+		log.Fatal(err)
+	}
 }

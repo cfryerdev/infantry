@@ -23,8 +23,13 @@ type Protocol struct {
 }
 
 type ProtocolHttp struct {
-	Ssl bool `yaml:"ssl,omitempty"`
-	//Headers map[string]string `yaml:"headers,omitempty"`
+	Ssl     bool     `yaml:"ssl,omitempty"`
+	Headers []Header `yaml:"headers,omitempty"`
+}
+
+type Header struct {
+	Key   string `yaml:"key,omitempty"`
+	Value string `yaml:"value,omitempty"`
 }
 
 type ProtocolHttpHeaders struct {
