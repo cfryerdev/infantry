@@ -16,7 +16,7 @@ func Execute() {
 	fmt.Println("(O_o_o_o_o_O) ")
 	fmt.Println("-----------------------------")
 
-	LoadDotEnv()
+	//LoadDotEnv()
 
 	var planFile string
 	var outputFile string
@@ -25,5 +25,6 @@ func Execute() {
 	SetupEventListeners()
 
 	var plan = engine.LoadPlanSchemaFromPath(planFile)
-	engine.Run(plan, outputFile)
+	var report = engine.Run(plan)
+	fmt.Printf("DEBUG: %+v\n", report)
 }
