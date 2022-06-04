@@ -3,6 +3,8 @@ package console
 import (
 	"fmt"
 	"infantry/engine"
+	"log"
+	"os"
 )
 
 func main() {
@@ -22,12 +24,16 @@ func Execute() {
 	SetupArgs(&planFile, &outputFile)
 
 	LoadDotEnv()
-	
+
 	SetupEventListeners()
 
 	var plan = engine.LoadPlanSchemaFromPath(planFile)
 
-	var report = engine.Run(plan)
+	var report, err = engine.Run(plan)
+	if err != nil {
+		log.Fatal(err)
+		os.Exit(0)
+	}
 
 	engine.SaveReportFile(report, outputFile)
 }
