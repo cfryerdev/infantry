@@ -1,7 +1,5 @@
 setup:
   host: "https://run.mocky.io"
-  execution:
-    requestsPerIteration: 30
   stages:
     - seconds: 10
       addUsersPerSecond: 1
@@ -14,8 +12,9 @@ setup:
       maxUsersAtOnce: 10
 protocol:
   http:
-      ssl: false
-      ignoreSslErrors: true
+      tls:
+        ignoreSslErrors: true
+      timeout: 30
       headers:
         - key: "x-api-key"
           value: "{{CUSTOM_KEY_HERE}}"

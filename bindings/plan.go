@@ -23,8 +23,13 @@ type Protocol struct {
 }
 
 type ProtocolHttp struct {
-	Ssl     bool     `yaml:"ssl,omitempty"`
+	Tls     Tls      `yaml:"tls,omitempty"`
+	Timeout int      `yaml:"timeout,omitempty"`
 	Headers []Header `yaml:"headers,omitempty"`
+}
+
+type Tls struct {
+	IgnoreSslErrors bool `yaml:"ignoreSslErrors,omitempty"`
 }
 
 type Header struct {
