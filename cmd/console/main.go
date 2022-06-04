@@ -16,7 +16,7 @@ func Execute() {
 	fmt.Println("(O_o_o_o_o_O) ")
 	fmt.Println("-----------------------------")
 
-	//LoadDotEnv()
+	LoadDotEnv()
 
 	var planFile string
 	var outputFile string

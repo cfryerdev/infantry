@@ -1,5 +1,7 @@
 setup:
   host: "https://run.mocky.io"
+  execution:
+    requestsPerIteration: 30
   stages:
     - seconds: 10
       addUsersPerSecond: 1
@@ -13,9 +15,10 @@ setup:
 protocol:
   http:
       ssl: false
+      ignoreSslErrors: true
       headers:
         - key: "x-api-key"
-          value: "{{environment}}.CUSTOM_KEY_HERE"
+          value: "{{CUSTOM_KEY_HERE}}"
 proposal:
     - name: "Get a sample payload"
       method: "get"
