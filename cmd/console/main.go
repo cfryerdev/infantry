@@ -26,7 +26,8 @@ func Execute() {
 	SetupEventListeners()
 
 	var plan = engine.LoadPlanSchemaFromPath(planFile)
+
 	var report = engine.Run(plan)
 
-	fmt.Printf("DEBUG: %+v\n", report)
+	engine.SaveReportFile(report, outputFile)
 }
