@@ -33,7 +33,8 @@ func ValidateSchema(plan bindings.Plan) {
 // LoadEnvironmentOverrides Replaces any instances where env vars are used
 func LoadEnvironmentOverrides(plan bindings.Plan) bindings.Plan {
 	// v := reflect.ValueOf(plan)
-	// loop through each property, and find any wildcards -> {{%s}}
+	// https://pkg.go.dev/text/template
+	// loop through each property, and find any wildcards -> {{.%s}}
 	// Get the env variable, then replace value and return plan
 	return plan
 }

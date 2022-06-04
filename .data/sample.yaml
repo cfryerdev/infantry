@@ -17,7 +17,7 @@ protocol:
       timeout: 30
       headers:
         - key: "x-api-key"
-          value: "{{CUSTOM_KEY_HERE}}"
+          value: "{{.CUSTOM_KEY_HERE}}"
 proposal:
     - name: "Get a sample payload"
       method: "get"
