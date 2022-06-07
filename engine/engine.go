@@ -2,9 +2,7 @@ package engine
 
 import (
 	"fmt"
-	"github.com/google/uuid"
 	"infantry/bindings"
-	"time"
 )
 
 // https://www.geeksforgeeks.org/function-as-a-field-in-golang-structure/
@@ -13,25 +11,16 @@ var report bindings.Report
 var host string
 
 func Start(plan bindings.Plan) (bindings.Report, error) {
-	SetupReport()
+	SetupReport(report)
 	FirePlanStartEvent(nil)
 	host = plan.Setup.Host
 	for _, stage := range plan.Setup.Stages {
 		ExecuteStage(stage, plan.Proposals)
 	}
-	FinalizeReport()
+	CreateSummary(report)
+	FinalizeReport(report)
 	FirePlanCompleteEvent(nil)
 	return report, nil
-}
-
-func SetupReport() {
-	report.Id = uuid.New()
-	report.Summary.StartTimestamp = time.Now().UTC().String()
-}
-
-func FinalizeReport() {
-	report.Summary.EndTimestamp = time.Now().UTC().String()
-	FireCreatingReportEvent(nil)
 }
 
 func ExecuteStage(stage bindings.Stage, proposals []bindings.Proposal) {

@@ -9,12 +9,20 @@ type Report struct {
 }
 
 type Summary struct {
-	StartTimestamp    string
-	EndTimestamp      string
-	Requests          int
-	NetworkErrors     int
-	Codes             []ResponseCodes
-	AvgResponseTimeMs int64
+	StartTimestamp string
+	EndTimestamp   string
+	Stats          Stats
+	Codes          []ResponseCodes
+}
+
+type Stats struct {
+	TotalRequests        int
+	BadRequests          int
+	Errors               int
+	NetworkErrors        int
+	SuccessRate          float32
+	AvgResponseTimeMs    int64
+	AvgRequestsPerSecond int64
 }
 
 type Iteration struct {
