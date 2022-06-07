@@ -6,16 +6,10 @@ import (
 
 type User struct {
 	Id   uuid.UUID
-	Task UserTask
+	Host string
 }
 
-type UserCluster struct {
-	Cluster []User
-}
-
-type UserTask func(int, int) interface{}
-
-// CreateVirtualUser Creates a virtual user for use with a single proposal
+// CreateVirtualUser Creates a virtual user for use with proposals
 func CreateVirtualUser() User {
 	return User{}
 }

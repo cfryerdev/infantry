@@ -8,7 +8,7 @@ import (
 )
 
 func HandleRequest(ctx context.Context, plan bindings.Plan) (bindings.Report, error) {
-	var report, err = engine.Run(plan)
+	var report, err = engine.Start(plan)
 	// TODO: Log stuff n junk yo
 	return report, err
 }

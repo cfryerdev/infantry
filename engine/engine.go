@@ -1,58 +1,61 @@
 package engine
 
 import (
+	"fmt"
 	"github.com/google/uuid"
 	"infantry/bindings"
-	"sync"
 	"time"
 )
 
 // https://www.geeksforgeeks.org/function-as-a-field-in-golang-structure/
-// https://stackoverflow.com/a/25306241
-// https://stackoverflow.com/a/16466581
+
+var report bindings.Report
+var host string
 
 func Start(plan bindings.Plan) (bindings.Report, error) {
-	var report bindings.Report
-	report.Id = uuid.New()
-	report.Summary.StartTimestamp = time.Now().UTC().String()
+	SetupReport()
+	FirePlanStartEvent(nil)
+	host = plan.Setup.Host
 	for _, stage := range plan.Setup.Stages {
 		ExecuteStage(stage, plan.Proposals)
 	}
-	return bindings.Report{}, nil
+	FinalizeReport()
+	FirePlanCompleteEvent(nil)
+	return report, nil
+}
+
+func SetupReport() {
+	report.Id = uuid.New()
+	report.Summary.StartTimestamp = time.Now().UTC().String()
+}
+
+func FinalizeReport() {
+	report.Summary.EndTimestamp = time.Now().UTC().String()
+	FireCreatingReportEvent(nil)
 }
 
 func ExecuteStage(stage bindings.Stage, proposals []bindings.Proposal) {
-	ticker := time.NewTicker(time.Duration(stage.Seconds) * time.Second)
-	quit := make(chan struct{})
-	var guard = make(chan struct{}, stage.MaxUsersAtOnce)
-	var wg sync.WaitGroup
-	go func() {
-		for {
-			select {
-			case <-ticker.C:
-				ExecuteProposal(proposals, stage.AddUsersPerSecond, guard)
-			case <-quit:
-				ticker.Stop()
-				return
-			}
-		}
-	}()
-	wg.Done()
+	FireStageStartedEvent(nil)
+	ExecuteEachSecondConcurrent(stage.Seconds, func() {
+		ExecuteUserProposals(proposals, stage.AddUsersPerSecond, stage.MaxUsersAtOnce)
+	})
+	FireStageCompletedEvent(nil)
 }
 
-func ExecuteProposal(proposals []bindings.Proposal, addUsers int, guard chan struct{}) {
-	var wg sync.WaitGroup
-	for i := 1; i <= addUsers; i++ {
-		go func(n int) {
-			guard <- struct{}{}
-			var user = CreateVirtualUser()
-			ExecuteTask(user, proposals)
-			<-guard
-		}(i)
-	}
-	wg.Done()
+func ExecuteUserProposals(proposals []bindings.Proposal, addUsers int, maxUsers int) {
+	ExecuteNumberOfTimesConcurrent(addUsers, maxUsers, func() {
+		FireProposalStartedEvent(nil)
+		var user = CreateVirtualUser()
+		ExecuteTask(user, proposals)
+		FireProposalCompletedEvent(nil)
+	})
 }
 
 func ExecuteTask(user User, proposals []bindings.Proposal) {
-
+	for _, proposal := range proposals {
+		FireProposalTaskStartedEvent(nil)
+		fmt.Printf("PROPOSAL: %+v\n", proposal)
+		// if err != nill { FireProposalTaskFailureEvent(nil) }
+		// else { FireProposalTaskSuccessEvent(nil) }
+	}
 }

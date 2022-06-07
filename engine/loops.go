@@ -1,5 +1,8 @@
 package engine
 
+// https://stackoverflow.com/a/25306241
+// https://stackoverflow.com/a/16466581
+
 import (
 	"sync"
 	"time"
