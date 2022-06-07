@@ -7,6 +7,10 @@ import (
 	"time"
 )
 
+// https://www.geeksforgeeks.org/function-as-a-field-in-golang-structure/
+// https://stackoverflow.com/a/25306241
+// https://stackoverflow.com/a/16466581
+
 func Start(plan bindings.Plan) (bindings.Report, error) {
 	var report bindings.Report
 	report.Id = uuid.New()
