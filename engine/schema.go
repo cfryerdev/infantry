@@ -25,6 +25,7 @@ func LoadPlanSchemaFromPath(pathToConfig string) bindings.Plan {
 func ValidateSchema(plan bindings.Plan) {
 	var planValidator = validator.New()
 	err := planValidator.Struct(plan)
+	// https://github.com/go-playground/validator/blob/master/_examples/simple/main.go
 	if err != nil {
 
 	}

@@ -22,14 +22,12 @@ func Execute() {
 	var outputFile string
 
 	SetupArgs(&planFile, &outputFile)
-
 	LoadDotEnv()
-
 	SetupEventListeners()
 
 	var plan = engine.LoadPlanSchemaFromPath(planFile)
 
-	var report, err = engine.Run(plan)
+	var report, err = engine.Start(plan)
 	if err != nil {
 		log.Fatal(err)
 		os.Exit(0)

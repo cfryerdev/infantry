@@ -16,6 +16,7 @@ type Summary struct {
 	Codes             []ResponseCodes
 	AvgResponseTimeMs int64
 }
+
 type Iteration struct {
 	Timestamp         string
 	Requests          int

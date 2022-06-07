@@ -1,9 +1,9 @@
 package bindings
 
 type Plan struct {
-	Setup    Setup      `yaml:"setup,omitempty"`
-	Protocol Protocol   `yaml:"protocol,omitempty"`
-	Proposal []Proposal `yaml:"proposal,omitempty"`
+	Setup     Setup      `yaml:"setup,omitempty"`
+	Protocol  Protocol   `yaml:"protocol,omitempty"`
+	Proposals []Proposal `yaml:"proposal,omitempty"`
 }
 
 type Setup struct {
