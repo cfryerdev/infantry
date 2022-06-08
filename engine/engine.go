@@ -1,7 +1,6 @@
 package engine
 
 import (
-	"fmt"
 	"infantry/bindings"
 )
 
@@ -40,8 +39,8 @@ func ExecuteUserProposals(proposals []bindings.Proposal, addUsers int, maxUsers 
 
 func ExecuteTask(user User, proposals []bindings.Proposal) {
 	for _, proposal := range proposals {
-		FireProposalTaskStartedEvent(nil)
-		fmt.Printf("PROPOSAL: %+v\n", proposal)
+		FireProposalTaskStartedEvent(proposal)
+		// fmt.Printf("PROPOSAL: %+v\n", proposal)
 		// if err != nill { FireProposalTaskFailureEvent(nil) }
 		// else { FireProposalTaskSuccessEvent(nil) }
 	}

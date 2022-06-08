@@ -4,16 +4,31 @@ import (
 	"fmt"
 	"github.com/gookit/event"
 	"infantry/bindings"
+	"time"
 )
 
 func SetupEventListeners() {
 	event.On(bindings.PlanStartedEvent, event.ListenerFunc(func(e event.Event) error {
-		fmt.Printf("Started Plan...")
+		TimestampLog("Started Plan...")
+		return nil
+	}), event.High)
+
+	event.On(bindings.ProposalStartedEvent, event.ListenerFunc(func(e event.Event) error {
+		TimestampLog("-- Started Proposal...")
+		return nil
+	}), event.High)
+
+	event.On(bindings.ProposalCompletedEvent, event.ListenerFunc(func(e event.Event) error {
+		TimestampLog("-- Completed Proposal...")
 		return nil
 	}), event.High)
 
 	event.On(bindings.PlanCompletedEvent, event.ListenerFunc(func(e event.Event) error {
-		fmt.Printf("Complete!")
+		TimestampLog("Complete!")
 		return nil
 	}), event.High)
+}
+
+func TimestampLog(message string) {
+	fmt.Println(time.Now().Format("[15:04:05-06] ") + message)
 }
