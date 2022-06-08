@@ -8,6 +8,15 @@ import (
 	"time"
 )
 
+type Agent struct {
+	Host          string
+	Url           string
+	Body          interface{}
+	Timeout       int
+	SkipVerifySsl bool
+	Headers       []bindings.Header
+}
+
 // CreateTest Creates the base test struct for reporting
 func CreateTest(method string, uri string) bindings.Test {
 	var test bindings.Test
@@ -18,12 +27,13 @@ func CreateTest(method string, uri string) bindings.Test {
 }
 
 // TestGet Tests a get request and appends custom headers
-func TestGet(uri string, headers []bindings.Header, skipSsl bool) bindings.Test {
-	test := CreateTest(http.MethodGet, uri)
-	client := CreateHttpClient(skipSsl)
-	req, err := http.NewRequest(http.MethodGet, uri, nil)
-	if headers != nil {
-		SetTestHeaders(req, headers)
+func TestGet(agent Agent) bindings.Test {
+	test := CreateTest(http.MethodGet, agent.Host+agent.Url)
+	client := CreateHttpClient(agent.SkipVerifySsl)
+	client.Timeout = time.Duration(agent.Timeout)
+	req, err := http.NewRequest(http.MethodGet, agent.Host+agent.Url, nil)
+	if agent.Headers != nil {
+		SetTestHeaders(req, agent.Headers)
 	}
 	if err != nil {
 		test.Error = err.Error()
@@ -43,14 +53,15 @@ func TestGet(uri string, headers []bindings.Header, skipSsl bool) bindings.Test 
 }
 
 // TestPost Tests a post request, adds body as json, and appends custom headers
-func TestPost(uri string, body interface{}, headers []bindings.Header, skipSsl bool) bindings.Test {
-	test := CreateTest(http.MethodPost, uri)
-	client := CreateHttpClient(skipSsl)
-	jsonData, err := json.Marshal(body)
-	req, err := http.NewRequest(http.MethodPost, uri, bytes.NewBuffer(jsonData))
+func TestPost(agent Agent) bindings.Test {
+	test := CreateTest(http.MethodPost, agent.Host+agent.Url)
+	client := CreateHttpClient(agent.SkipVerifySsl)
+	client.Timeout = time.Duration(agent.Timeout)
+	jsonData, err := json.Marshal(agent.Body)
+	req, err := http.NewRequest(http.MethodPost, agent.Host+agent.Url, bytes.NewBuffer(jsonData))
 	req.Header.Set("Content-Type", "application/json; charset=UTF-8")
-	if headers != nil {
-		SetTestHeaders(req, headers)
+	if agent.Headers != nil {
+		SetTestHeaders(req, agent.Headers)
 	}
 	if err != nil {
 		test.Error = err.Error()

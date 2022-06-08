@@ -8,12 +8,10 @@ import (
 // https://www.geeksforgeeks.org/function-as-a-field-in-golang-structure/
 
 var report bindings.Report
-var host string
 
 func Start(plan bindings.Plan) (bindings.Report, error) {
 	SetupReport(report)
 	FirePlanStartEvent(nil)
-	host = plan.Setup.Host
 	for _, stage := range plan.Setup.Stages {
 		ExecuteStage(stage, plan.Proposals)
 	}

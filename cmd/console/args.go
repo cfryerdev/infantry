@@ -8,7 +8,6 @@ import (
 
 // SetupArgs Sets up the args for the cli interface
 func SetupArgs(plan *string, output *string) {
-
 	args := cli.NewApp()
 	args.HideHelp = true
 	args.Name = "Infantry"
