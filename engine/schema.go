@@ -1,7 +1,6 @@
 package engine
 
 import (
-	"encoding/json"
 	"flag"
 	"fmt"
 	"github.com/go-playground/validator/v10"
@@ -38,12 +37,6 @@ func LoadEnvironmentOverrides(plan bindings.Plan) bindings.Plan {
 	// loop through each property, and find any wildcards -> {{.%s}}
 	// Get the env variable, then replace value and return plan
 	return plan
-}
-
-// SaveReportFile Saves the overall output to a json file for reporting to read
-func SaveReportFile(data bindings.Report, fileName string) {
-	file, _ := json.MarshalIndent(data, "", "  ")
-	_ = ioutil.WriteFile(fileName, file, 0644)
 }
 
 // ReadPlanFile Reads in a plan yaml file

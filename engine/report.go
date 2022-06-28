@@ -1,8 +1,10 @@
 package engine
 
 import (
+	"encoding/json"
 	"github.com/google/uuid"
 	"infantry/bindings"
+	"io/ioutil"
 	"time"
 )
 
@@ -17,4 +19,10 @@ func FinalizeReport(report bindings.Report) {
 
 func CreateSummary(report bindings.Report) {
 	report.Summary.EndTimestamp = time.Now().UTC().String()
+}
+
+// SaveReportFile Saves the overall output to a json file for reporting to read
+func SaveReportFile(data bindings.Report, fileName string) {
+	file, _ := json.MarshalIndent(data, "", "  ")
+	_ = ioutil.WriteFile(fileName, file, 0644)
 }

@@ -44,8 +44,8 @@ func ExecuteNumberOfTimesConcurrent(times int, maxConcurrently int, delegate fun
 		go func(n int) {
 			guard <- struct{}{}
 			delegate()
-			<-guard
 			wg.Done()
+			<-guard
 		}(i)
 	}
 	wg.Wait()
