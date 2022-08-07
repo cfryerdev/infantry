@@ -1,14 +1,14 @@
 setup:
   host: "https://run.mocky.io"
   stages:
-    - seconds: 10
-      addUsersPerSecond: 1
+    - iterations: 10
+      addUsersPerIterations: 5
       maxUsersAtOnce: 8
-    - seconds: 600
-      addUsersPerSecond: 10
+    - iterations: 600
+      addUsersPerIterations: 10
       maxUsersAtOnce: 300
-    - seconds: 10
-      addUsersPerSecond: 1
+    - iterations: 10
+      addUsersPerIterations: 1
       maxUsersAtOnce: 10
 protocol:
   http:

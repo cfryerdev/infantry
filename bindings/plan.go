@@ -12,9 +12,9 @@ type Setup struct {
 }
 
 type Stage struct {
-	Seconds           int `yaml:"seconds,omitempty"`
-	AddUsersPerSecond int `yaml:"addUsersPerSecond,omitempty"`
-	MaxUsersAtOnce    int `yaml:"maxUsersAtOnce,omitempty"`
+	Iterations            int `yaml:"iterations,omitempty"`
+	AddUsersPerIterations int `yaml:"addUsersPerIterations,omitempty"`
+	MaxUsersAtOnce        int `yaml:"maxUsersAtOnce,omitempty"`
 }
 
 type Protocol struct {

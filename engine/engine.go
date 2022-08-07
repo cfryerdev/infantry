@@ -6,42 +6,44 @@ import (
 
 // https://www.geeksforgeeks.org/function-as-a-field-in-golang-structure/
 
-var report bindings.Report
+var _report bindings.Report
+var _plan bindings.Plan
 
 func Start(plan bindings.Plan) (bindings.Report, error) {
-	SetupReport(report)
+	SetupReport(_report)
 	FirePlanStartEvent(nil)
 	for _, stage := range plan.Setup.Stages {
 		ExecuteStage(stage, plan.Proposals)
 	}
-	CreateSummary(report)
-	FinalizeReport(report)
+	CreateSummary(_report)
+	FinalizeReport(_report)
 	FirePlanCompleteEvent(nil)
-	return report, nil
+	return _report, nil
 }
 
 func ExecuteStage(stage bindings.Stage, proposals []bindings.Proposal) {
 	FireStageStartedEvent(nil)
-	ExecuteEachSecondConcurrent(stage.Seconds, func() {
-		ExecuteUserProposals(proposals, stage.AddUsersPerSecond, stage.MaxUsersAtOnce)
+	ExecuteEachSecondConcurrent(stage.Iterations, func() {
+		ExecuteUserProposals(proposals, stage.AddUsersPerIterations, stage.MaxUsersAtOnce)
 	})
 	FireStageCompletedEvent(nil)
 }
 
 func ExecuteUserProposals(proposals []bindings.Proposal, addUsers int, maxUsers int) {
+	FireProposalStartedEvent(nil)
 	ExecuteNumberOfTimesConcurrent(addUsers, maxUsers, func() {
-		FireProposalStartedEvent(nil)
-		var user = CreateVirtualUser()
-		ExecuteTask(user, proposals)
-		FireProposalCompletedEvent(nil)
+		ExecuteTasks(User{}, proposals)
 	})
+	FireProposalCompletedEvent(nil)
 }
 
-func ExecuteTask(user User, proposals []bindings.Proposal) {
+func ExecuteTasks(user User, proposals []bindings.Proposal) {
 	for _, proposal := range proposals {
 		FireProposalTaskStartedEvent(proposal)
-		// fmt.Printf("PROPOSAL: %+v\n", proposal)
-		// if err != nill { FireProposalTaskFailureEvent(nil) }
-		// else { FireProposalTaskSuccessEvent(nil) }
+		var resp, err = user.ExecuteProposal(_plan.Protocol, proposal)
+		if err != nil {
+			FireProposalTaskFailureEvent(resp)
+		}
+		//else { FireProposalTaskSuccessEvent(resp) }
 	}
 }

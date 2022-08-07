@@ -13,18 +13,13 @@ func SetupEventListeners() {
 		return nil
 	}), event.High)
 
-	event.On(bindings.ProposalStartedEvent, event.ListenerFunc(func(e event.Event) error {
-		TimestampLog("-- Started Proposal...")
-		return nil
-	}), event.High)
-
-	event.On(bindings.ProposalCompletedEvent, event.ListenerFunc(func(e event.Event) error {
-		TimestampLog("-- Completed Proposal...")
-		return nil
-	}), event.High)
-
 	event.On(bindings.PlanCompletedEvent, event.ListenerFunc(func(e event.Event) error {
 		TimestampLog("Complete!")
+		return nil
+	}), event.High)
+
+	event.On(bindings.ProposalTaskStartedEvent, event.ListenerFunc(func(e event.Event) error {
+		TimestampLog("-- Task Started...")
 		return nil
 	}), event.High)
 }
