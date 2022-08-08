@@ -106,10 +106,6 @@ func TestOptions(uri string, headers []bindings.Header, skipSsl bool) bindings.T
 	return test
 }
 
-func Execute(proposal bindings.Proposal) (bindings.Test, error) {
-	return bindings.Test{}, nil
-}
-
 func (httpExecutor HttpExecutor) Initialize(protocol bindings.Protocol) {
 	//TODO - handle more protocol options on creation
 	httpClient = CreateHttpClient(protocol.Http.Tls.IgnoreSslErrors)

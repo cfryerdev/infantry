@@ -68,6 +68,7 @@ func ExecuteUserProposals(proposals []bindings.Proposal, currentUsers int) {
 func ExecuteTasks(user User, proposals []bindings.Proposal) {
 	for _, proposal := range proposals {
 		FireProposalTaskStartedEvent(proposal)
+
 		var resp, err = _executor.Execute((proposal))
 
 		if err != nil {
