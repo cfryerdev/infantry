@@ -3,10 +3,13 @@ package http
 import (
 	"bytes"
 	"encoding/json"
+	"fmt"
 	"infantry/bindings"
 	"net/http"
 	"time"
 )
+
+type HttpExecutor struct{}
 
 type Agent struct {
 	Host          string
@@ -16,6 +19,8 @@ type Agent struct {
 	SkipVerifySsl bool
 	Headers       []bindings.Header
 }
+
+var httpClient http.Client
 
 // CreateTest Creates the base test struct for reporting
 func CreateTest(method string, uri string) bindings.Test {
@@ -99,4 +104,14 @@ func TestHead(uri string, headers []bindings.Header, skipSsl bool) bindings.Test
 func TestOptions(uri string, headers []bindings.Header, skipSsl bool) bindings.Test {
 	test := CreateTest(http.MethodOptions, uri)
 	return test
+}
+
+func (httpExecutor HttpExecutor) Initialize(protocol bindings.Protocol) {
+	//TODO - handle more protocol options on creation
+	httpClient = CreateHttpClient(protocol.Http.Tls.IgnoreSslErrors)
+}
+
+func (httpExecutor HttpExecutor) Execute(proposal bindings.Proposal) (bindings.Test, error) {
+	fmt.Println("Executing")
+	return bindings.Test{}, nil
 }

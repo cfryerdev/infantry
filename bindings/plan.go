@@ -49,3 +49,8 @@ type Proposal struct {
 	Method string `yaml:"method,omitempty"`
 	Url    string `yaml:"url,omitempty"`
 }
+
+type Executor interface {
+	Initialize(protocol Protocol)
+	Execute(proposal Proposal) (Test, error)
+}
